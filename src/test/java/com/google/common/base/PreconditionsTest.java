@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cookingfox.guava_preconditions;
+package com.google.common.base;
 
 import com.google.common.annotations.GwtCompatible;
 import com.google.common.annotations.GwtIncompatible;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.cookingfox.guava_preconditions.Preconditions.checkState;
+import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.truth.Truth.assertThat;
 
 /**

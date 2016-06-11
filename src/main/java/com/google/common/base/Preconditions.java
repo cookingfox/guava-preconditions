@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.cookingfox.guava_preconditions;
+package com.google.common.base;
 
 /**
  * Static convenience methods that help a method or constructor check whether it was invoked
