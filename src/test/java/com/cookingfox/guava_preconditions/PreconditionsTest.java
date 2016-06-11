@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.common.base;
+package com.cookingfox.guava_preconditions;
 
 import com.google.common.annotations.GwtCompatible;
 import com.google.common.annotations.GwtIncompatible;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.google.common.base.Preconditions.checkState;
+import static com.cookingfox.guava_preconditions.Preconditions.checkState;
 import static com.google.common.truth.Truth.assertThat;
 
 /**
@@ -90,24 +90,24 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testCheckState_simple_success() {
-        Preconditions.checkState(true);
+        checkState(true);
     }
 
     public void testCheckState_simple_failure() {
         try {
-            Preconditions.checkState(false);
+            checkState(false);
             fail("no exception thrown");
         } catch (IllegalStateException expected) {
         }
     }
 
     public void testCheckState_simpleMessage_success() {
-        Preconditions.checkState(true, IGNORE_ME);
+        checkState(true, IGNORE_ME);
     }
 
     public void testCheckState_simpleMessage_failure() {
         try {
-            Preconditions.checkState(false, new Message());
+            checkState(false, new Message());
             fail("no exception thrown");
         } catch (IllegalStateException expected) {
             verifySimpleMessage(expected);
@@ -116,7 +116,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckState_nullMessage_failure() {
         try {
-            Preconditions.checkState(false, null);
+            checkState(false, null);
             fail("no exception thrown");
         } catch (IllegalStateException expected) {
             assertThat(expected).hasMessage("null");
@@ -124,12 +124,12 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testCheckState_complexMessage_success() {
-        Preconditions.checkState(true, "%s", IGNORE_ME);
+        checkState(true, "%s", IGNORE_ME);
     }
 
     public void testCheckState_complexMessage_failure() {
         try {
-            Preconditions.checkState(false, FORMAT, 5);
+            checkState(false, FORMAT, 5);
             fail("no exception thrown");
         } catch (IllegalStateException expected) {
             verifyComplexMessage(expected);
