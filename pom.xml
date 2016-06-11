@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Maven info -->
     <groupId>com.cookingfox</groupId>
     <artifactId>guava-preconditions</artifactId>
     <version>0.1.2-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <name>Guava Preconditions</name>
     <description>Only the Preconditions class from Google Guava.</description>
     <url>https://github.com/cookingfox/guava-preconditions</url>
+
+    <!-- Properties -->
+    <properties>
+        <!-- Encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
+
+        <!-- Compilation -->
+        <java.version>1.6</java.version>
+    </properties>
 
     <!-- Source Control Management -->
     <scm>
@@ -49,16 +61,6 @@
         <name>Cooking Fox</name>
         <url>http://www.cookingfox.com</url>
     </organization>
-
-    <!-- Properties -->
-    <properties>
-        <!-- Encoding -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
-
-        <!-- Compilation -->
-        <java.version>1.6</java.version>
-    </properties>
 
     <!-- Dependencies -->
     <dependencies>
