@@ -5,7 +5,7 @@
     <!-- Maven info -->
     <groupId>com.cookingfox</groupId>
     <artifactId>guava-preconditions</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Guava Preconditions</name>
     <description>Only the Preconditions class from Google Guava.</description>
@@ -18,7 +18,7 @@
         <developerConnection>
             scm:git:ssh://git@github.com/cookingfox/guava-preconditions.git
         </developerConnection>
-        <tag>guava-preconditions-0.1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <!-- Issue management -->
