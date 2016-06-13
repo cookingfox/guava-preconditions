@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Maven info -->
@@ -59,6 +61,22 @@
         <name>Cooking Fox</name>
         <url>http://www.cookingfox.com</url>
     </organization>
+
+    <!-- Developers -->
+    <developers>
+        <developer>
+            <id>abelcookingfox</id>
+            <name>Abel de Beer</name>
+            <email>abel@cookingfox.nl</email>
+            <url>https://github.com/cookingfox</url>
+            <organization>Cooking Fox</organization>
+            <organizationUrl>http://www.cookingfox.com</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Amsterdam</timezone>
+        </developer>
+    </developers>
 
     <!-- Dependencies -->
     <dependencies>
