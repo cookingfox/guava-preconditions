@@ -26,7 +26,7 @@ and add the project to the `dependencies` block in your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.cookingfox:guava-preconditions:0.1.4'
+    compile 'com.cookingfox:guava-preconditions:0.1.5'
 }
 ```
 
@@ -49,6 +49,6 @@ and add the project to the `dependencies` block in your `pom.xml`:
 <dependency>
     <groupId>com.cookingfox</groupId>
     <artifactId>guava-preconditions</artifactId>
-    <version>0.1.4</version>
+    <version>0.1.5</version>
 </dependency>
 ```
