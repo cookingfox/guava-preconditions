@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.common.base;
+package com.cookingfox.guava_preconditions;
 
 import com.google.common.annotations.GwtCompatible;
 import com.google.common.annotations.GwtIncompatible;
@@ -31,11 +31,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.google.common.base.Preconditions.checkState;
+import static com.cookingfox.guava_preconditions.Preconditions.checkState;
 import static com.google.common.truth.Truth.assertThat;
 
 /**
- * Unit test for {@link Preconditions}.
+ * Unit test for {@link com.cookingfox.guava_preconditions.Preconditions}.
  *
  * @author Kevin Bourrillion
  * @author Jared Levy
@@ -43,24 +43,24 @@ import static com.google.common.truth.Truth.assertThat;
 @GwtCompatible(emulated = true)
 public class PreconditionsTest extends TestCase {
     public void testCheckArgument_simple_success() {
-        Preconditions.checkArgument(true);
+        com.cookingfox.guava_preconditions.Preconditions.checkArgument(true);
     }
 
     public void testCheckArgument_simple_failure() {
         try {
-            Preconditions.checkArgument(false);
+            com.cookingfox.guava_preconditions.Preconditions.checkArgument(false);
             fail("no exception thrown");
         } catch (IllegalArgumentException expected) {
         }
     }
 
     public void testCheckArgument_simpleMessage_success() {
-        Preconditions.checkArgument(true, IGNORE_ME);
+        com.cookingfox.guava_preconditions.Preconditions.checkArgument(true, IGNORE_ME);
     }
 
     public void testCheckArgument_simpleMessage_failure() {
         try {
-            Preconditions.checkArgument(false, new Message());
+            com.cookingfox.guava_preconditions.Preconditions.checkArgument(false, new Message());
             fail("no exception thrown");
         } catch (IllegalArgumentException expected) {
             verifySimpleMessage(expected);
@@ -69,7 +69,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckArgument_nullMessage_failure() {
         try {
-            Preconditions.checkArgument(false, null);
+            com.cookingfox.guava_preconditions.Preconditions.checkArgument(false, null);
             fail("no exception thrown");
         } catch (IllegalArgumentException expected) {
             assertThat(expected).hasMessage("null");
@@ -77,12 +77,12 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testCheckArgument_complexMessage_success() {
-        Preconditions.checkArgument(true, "%s", IGNORE_ME);
+        com.cookingfox.guava_preconditions.Preconditions.checkArgument(true, "%s", IGNORE_ME);
     }
 
     public void testCheckArgument_complexMessage_failure() {
         try {
-            Preconditions.checkArgument(false, FORMAT, 5);
+            com.cookingfox.guava_preconditions.Preconditions.checkArgument(false, FORMAT, 5);
             fail("no exception thrown");
         } catch (IllegalArgumentException expected) {
             verifyComplexMessage(expected);
@@ -139,26 +139,26 @@ public class PreconditionsTest extends TestCase {
     private static final String NON_NULL_STRING = "foo";
 
     public void testCheckNotNull_simple_success() {
-        String result = Preconditions.checkNotNull(NON_NULL_STRING);
+        String result = com.cookingfox.guava_preconditions.Preconditions.checkNotNull(NON_NULL_STRING);
         assertSame(NON_NULL_STRING, result);
     }
 
     public void testCheckNotNull_simple_failure() {
         try {
-            Preconditions.checkNotNull(null);
+            com.cookingfox.guava_preconditions.Preconditions.checkNotNull(null);
             fail("no exception thrown");
         } catch (NullPointerException expected) {
         }
     }
 
     public void testCheckNotNull_simpleMessage_success() {
-        String result = Preconditions.checkNotNull(NON_NULL_STRING, IGNORE_ME);
+        String result = com.cookingfox.guava_preconditions.Preconditions.checkNotNull(NON_NULL_STRING, IGNORE_ME);
         assertSame(NON_NULL_STRING, result);
     }
 
     public void testCheckNotNull_simpleMessage_failure() {
         try {
-            Preconditions.checkNotNull(null, new Message());
+            com.cookingfox.guava_preconditions.Preconditions.checkNotNull(null, new Message());
             fail("no exception thrown");
         } catch (NullPointerException expected) {
             verifySimpleMessage(expected);
@@ -166,14 +166,14 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testCheckNotNull_complexMessage_success() {
-        String result = Preconditions.checkNotNull(
+        String result = com.cookingfox.guava_preconditions.Preconditions.checkNotNull(
                 NON_NULL_STRING, "%s", IGNORE_ME);
         assertSame(NON_NULL_STRING, result);
     }
 
     public void testCheckNotNull_complexMessage_failure() {
         try {
-            Preconditions.checkNotNull(null, FORMAT, 5);
+            com.cookingfox.guava_preconditions.Preconditions.checkNotNull(null, FORMAT, 5);
             fail("no exception thrown");
         } catch (NullPointerException expected) {
             verifyComplexMessage(expected);
@@ -181,14 +181,14 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testCheckElementIndex_ok() {
-        assertEquals(0, Preconditions.checkElementIndex(0, 1));
-        assertEquals(0, Preconditions.checkElementIndex(0, 2));
-        assertEquals(1, Preconditions.checkElementIndex(1, 2));
+        assertEquals(0, com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(0, 1));
+        assertEquals(0, com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(0, 2));
+        assertEquals(1, com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(1, 2));
     }
 
     public void testCheckElementIndex_badSize() {
         try {
-            Preconditions.checkElementIndex(1, -1);
+            com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(1, -1);
             fail();
         } catch (IllegalArgumentException expected) {
             // don't care what the message text is, as this is an invalid usage of
@@ -198,7 +198,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckElementIndex_negative() {
         try {
-            Preconditions.checkElementIndex(-1, 1);
+            com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(-1, 1);
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("index (-1) must not be negative");
@@ -207,7 +207,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckElementIndex_tooHigh() {
         try {
-            Preconditions.checkElementIndex(1, 1);
+            com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(1, 1);
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("index (1) must be less than size (1)");
@@ -216,7 +216,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckElementIndex_withDesc_negative() {
         try {
-            Preconditions.checkElementIndex(-1, 1, "foo");
+            com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(-1, 1, "foo");
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("foo (-1) must not be negative");
@@ -225,7 +225,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckElementIndex_withDesc_tooHigh() {
         try {
-            Preconditions.checkElementIndex(1, 1, "foo");
+            com.cookingfox.guava_preconditions.Preconditions.checkElementIndex(1, 1, "foo");
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("foo (1) must be less than size (1)");
@@ -233,14 +233,14 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testCheckPositionIndex_ok() {
-        assertEquals(0, Preconditions.checkPositionIndex(0, 0));
-        assertEquals(0, Preconditions.checkPositionIndex(0, 1));
-        assertEquals(1, Preconditions.checkPositionIndex(1, 1));
+        assertEquals(0, com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(0, 0));
+        assertEquals(0, com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(0, 1));
+        assertEquals(1, com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(1, 1));
     }
 
     public void testCheckPositionIndex_badSize() {
         try {
-            Preconditions.checkPositionIndex(1, -1);
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(1, -1);
             fail();
         } catch (IllegalArgumentException expected) {
             // don't care what the message text is, as this is an invalid usage of
@@ -250,7 +250,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckPositionIndex_negative() {
         try {
-            Preconditions.checkPositionIndex(-1, 1);
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(-1, 1);
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("index (-1) must not be negative");
@@ -259,7 +259,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckPositionIndex_tooHigh() {
         try {
-            Preconditions.checkPositionIndex(2, 1);
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(2, 1);
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("index (2) must not be greater than size (1)");
@@ -268,7 +268,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckPositionIndex_withDesc_negative() {
         try {
-            Preconditions.checkPositionIndex(-1, 1, "foo");
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(-1, 1, "foo");
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("foo (-1) must not be negative");
@@ -277,7 +277,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckPositionIndex_withDesc_tooHigh() {
         try {
-            Preconditions.checkPositionIndex(2, 1, "foo");
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndex(2, 1, "foo");
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("foo (2) must not be greater than size (1)");
@@ -285,15 +285,15 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testCheckPositionIndexes_ok() {
-        Preconditions.checkPositionIndexes(0, 0, 0);
-        Preconditions.checkPositionIndexes(0, 0, 1);
-        Preconditions.checkPositionIndexes(0, 1, 1);
-        Preconditions.checkPositionIndexes(1, 1, 1);
+        com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(0, 0, 0);
+        com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(0, 0, 1);
+        com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(0, 1, 1);
+        com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(1, 1, 1);
     }
 
     public void testCheckPositionIndexes_badSize() {
         try {
-            Preconditions.checkPositionIndexes(1, 1, -1);
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(1, 1, -1);
             fail();
         } catch (IllegalArgumentException expected) {
         }
@@ -301,7 +301,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckPositionIndex_startNegative() {
         try {
-            Preconditions.checkPositionIndexes(-1, 1, 1);
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(-1, 1, 1);
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("start index (-1) must not be negative");
@@ -310,7 +310,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckPositionIndexes_endTooHigh() {
         try {
-            Preconditions.checkPositionIndexes(0, 2, 1);
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(0, 2, 1);
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("end index (2) must not be greater than size (1)");
@@ -319,7 +319,7 @@ public class PreconditionsTest extends TestCase {
 
     public void testCheckPositionIndexes_reversed() {
         try {
-            Preconditions.checkPositionIndexes(1, 0, 1);
+            com.cookingfox.guava_preconditions.Preconditions.checkPositionIndexes(1, 0, 1);
             fail();
         } catch (IndexOutOfBoundsException expected) {
             assertThat(expected).hasMessage("end index (0) must not be less than start index (1)");
@@ -327,28 +327,28 @@ public class PreconditionsTest extends TestCase {
     }
 
     public void testFormat() {
-        assertEquals("%s", Preconditions.format("%s"));
-        assertEquals("5", Preconditions.format("%s", 5));
-        assertEquals("foo [5]", Preconditions.format("foo", 5));
-        assertEquals("foo [5, 6, 7]", Preconditions.format("foo", 5, 6, 7));
-        assertEquals("%s 1 2", Preconditions.format("%s %s %s", "%s", 1, 2));
-        assertEquals(" [5, 6]", Preconditions.format("", 5, 6));
-        assertEquals("123", Preconditions.format("%s%s%s", 1, 2, 3));
-        assertEquals("1%s%s", Preconditions.format("%s%s%s", 1));
-        assertEquals("5 + 6 = 11", Preconditions.format("%s + 6 = 11", 5));
-        assertEquals("5 + 6 = 11", Preconditions.format("5 + %s = 11", 6));
-        assertEquals("5 + 6 = 11", Preconditions.format("5 + 6 = %s", 11));
-        assertEquals("5 + 6 = 11", Preconditions.format("%s + %s = %s", 5, 6, 11));
+        assertEquals("%s", com.cookingfox.guava_preconditions.Preconditions.format("%s"));
+        assertEquals("5", com.cookingfox.guava_preconditions.Preconditions.format("%s", 5));
+        assertEquals("foo [5]", com.cookingfox.guava_preconditions.Preconditions.format("foo", 5));
+        assertEquals("foo [5, 6, 7]", com.cookingfox.guava_preconditions.Preconditions.format("foo", 5, 6, 7));
+        assertEquals("%s 1 2", com.cookingfox.guava_preconditions.Preconditions.format("%s %s %s", "%s", 1, 2));
+        assertEquals(" [5, 6]", com.cookingfox.guava_preconditions.Preconditions.format("", 5, 6));
+        assertEquals("123", com.cookingfox.guava_preconditions.Preconditions.format("%s%s%s", 1, 2, 3));
+        assertEquals("1%s%s", com.cookingfox.guava_preconditions.Preconditions.format("%s%s%s", 1));
+        assertEquals("5 + 6 = 11", com.cookingfox.guava_preconditions.Preconditions.format("%s + 6 = 11", 5));
+        assertEquals("5 + 6 = 11", com.cookingfox.guava_preconditions.Preconditions.format("5 + %s = 11", 6));
+        assertEquals("5 + 6 = 11", com.cookingfox.guava_preconditions.Preconditions.format("5 + 6 = %s", 11));
+        assertEquals("5 + 6 = 11", com.cookingfox.guava_preconditions.Preconditions.format("%s + %s = %s", 5, 6, 11));
         assertEquals("null [null, null]",
-                Preconditions.format("%s", null, null, null));
-        assertEquals("null [5, 6]", Preconditions.format(null, 5, 6));
+                com.cookingfox.guava_preconditions.Preconditions.format("%s", null, null, null));
+        assertEquals("null [5, 6]", com.cookingfox.guava_preconditions.Preconditions.format(null, 5, 6));
     }
 
     @GwtIncompatible("Reflection")
     public void testAllOverloads_checkArgument() throws Exception {
         for (ImmutableList<Class<?>> sig : allSignatures(boolean.class)) {
             Method checkArgumentMethod =
-                    Preconditions.class.getMethod("checkArgument", sig.toArray(new Class<?>[]{}));
+                    com.cookingfox.guava_preconditions.Preconditions.class.getMethod("checkArgument", sig.toArray(new Class<?>[]{}));
             checkArgumentMethod.invoke(null /* static method */, getParametersForSignature(true, sig));
 
             Object[] failingParams = getParametersForSignature(false, sig);
@@ -365,7 +365,7 @@ public class PreconditionsTest extends TestCase {
     public void testAllOverloads_checkState() throws Exception {
         for (ImmutableList<Class<?>> sig : allSignatures(boolean.class)) {
             Method checkArgumentMethod =
-                    Preconditions.class.getMethod("checkState", sig.toArray(new Class<?>[]{}));
+                    com.cookingfox.guava_preconditions.Preconditions.class.getMethod("checkState", sig.toArray(new Class<?>[]{}));
             checkArgumentMethod.invoke(null /* static method */, getParametersForSignature(true, sig));
 
             Object[] failingParams = getParametersForSignature(false, sig);
@@ -382,7 +382,7 @@ public class PreconditionsTest extends TestCase {
     public void testAllOverloads_checkNotNull() throws Exception {
         for (ImmutableList<Class<?>> sig : allSignatures(Object.class)) {
             Method checkArgumentMethod =
-                    Preconditions.class.getMethod("checkNotNull", sig.toArray(new Class<?>[]{}));
+                    com.cookingfox.guava_preconditions.Preconditions.class.getMethod("checkNotNull", sig.toArray(new Class<?>[]{}));
             checkArgumentMethod.invoke(
                     null /* static method */, getParametersForSignature(new Object(), sig));
 
@@ -409,7 +409,7 @@ public class PreconditionsTest extends TestCase {
             assertThat(throwable).hasMessage("");
         } else {
             assertThat(throwable)
-                    .hasMessage(Preconditions.format("", Arrays.copyOfRange(params, 2, params.length)));
+                    .hasMessage(com.cookingfox.guava_preconditions.Preconditions.format("", Arrays.copyOfRange(params, 2, params.length)));
         }
     }
 
